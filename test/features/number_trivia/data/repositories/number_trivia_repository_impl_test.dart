@@ -1,9 +1,7 @@
 import 'package:flutter_number_fact/core/platform/network_info.dart';
 import 'package:flutter_number_fact/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
 import 'package:flutter_number_fact/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
-import 'package:flutter_number_fact/features/number_trivia/data/models/number_trivia_model.dart';
 import 'package:flutter_number_fact/features/number_trivia/data/repositories/number_trivia_repository_impl.dart';
-import 'package:flutter_number_fact/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -23,8 +21,6 @@ void main(){
 
    group('getConcreteNumberTrivia', () {
      const int testNumber = 1;
-     final NumberTriviaModel testNumberTriviaModel =  NumberTriviaModel(text: 'test', number: testNumber);
-     final NumberTrivia testNumberTrivia = testNumberTriviaModel;
      test('should check if the device is online', () async {
           when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
           repositoryImpl.getConcreteNumberTrivia(testNumber);
