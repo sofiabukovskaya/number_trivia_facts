@@ -31,7 +31,7 @@ void main() {
   group('toJson', () {
     test('should return a JSON map containing the proper data', () async {
       final Map<String, dynamic> result = testNumberTriviaModel.toJson();
-      final Map<String, Object> expectedMap = {
+      final Map<String, dynamic> expectedMap = <String, dynamic>{
         'text': 'Test',
         'number': 1
       };

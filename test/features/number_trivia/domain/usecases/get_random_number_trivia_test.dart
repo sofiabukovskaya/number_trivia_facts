@@ -13,12 +13,12 @@ class MockNumberTriviaRepository extends Mock
 void main() {
   final MockNumberTriviaRepository mockNumberTriviaRepository =
       MockNumberTriviaRepository();
-  GetRandomNumberTrivia usecase = GetRandomNumberTrivia(mockNumberTriviaRepository);
+  final GetRandomNumberTrivia usecase = GetRandomNumberTrivia(mockNumberTriviaRepository);
 
   const NumberTrivia testNumberTrivia = NumberTrivia(text: 'ddd', number: 1);
   test('should get trivia from the repository', () async {
     when(mockNumberTriviaRepository.getRandomNumberTrivia())
-        .thenAnswer((_) async => const Right(testNumberTrivia));
+        .thenAnswer((_) async => const Right<Failure, NumberTrivia>(testNumberTrivia));
 
     final Either<Failure, NumberTrivia> result = await usecase(NoParams());
 
