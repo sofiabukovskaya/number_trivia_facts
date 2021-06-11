@@ -35,8 +35,8 @@ Future<void> init() async {
     serviceLocator.registerLazySingleton(() => NumberTriviaLocalDataSourceImpl(sharedPreferences: serviceLocator()));
 
     //External
-    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    serviceLocator.registerLazySingleton(()  => sharedPreferences);
+    // final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    // serviceLocator.registerLazySingleton(()  => sharedPreferences);
     serviceLocator.registerLazySingleton(()  => http.Client());
     serviceLocator.registerLazySingleton(()  => DataConnectionChecker());
     
