@@ -6,9 +6,9 @@ class InputConverter{
             try {
                   final int integer = int.parse(str);
                   if(integer <0) throw const FormatException();
-                  return Right(integer);
+                  return Right<Failure, int>(integer);
             } on FormatException{
-                  return Left(InvalidInputFailure());
+                  return Left<Failure, int>(InvalidInputFailure());
             }
       }
 }

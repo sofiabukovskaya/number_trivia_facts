@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:dartz/dartz.dart';
 import 'package:flutter_number_fact/core/error/failures.dart';
 import 'package:flutter_number_fact/core/util/input_converter.dart';

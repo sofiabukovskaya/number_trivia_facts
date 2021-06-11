@@ -26,17 +26,17 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
         final NumberTriviaModel remoteTrivia =
             await remoteDataSource.getConcreteNumberTrivia(number);
         numberTriviaLocalDataSource.cacheNumberTrivia(remoteTrivia);
-        return Right(remoteTrivia);
+        return Right<Failure, NumberTrivia>(remoteTrivia);
       } on ServerException {
-        return Left(ServerFailure());
+        return Left<Failure, NumberTrivia>(ServerFailure());
       }
     } else {
       try {
         final NumberTriviaModel localTrivia =
             await numberTriviaLocalDataSource.getLastNumberTrivia();
-        return Right(localTrivia);
+        return Right<Failure, NumberTrivia>(localTrivia);
       } on CacheException {
-        return Left(CacheFailure());
+        return Left<Failure, NumberTrivia>(CacheFailure());
       }
     }
   }
@@ -48,17 +48,17 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
         final NumberTriviaModel remoteTrivia =
             await remoteDataSource.getRandomNumberTrivia();
         numberTriviaLocalDataSource.cacheNumberTrivia(remoteTrivia);
-        return Right(remoteTrivia);
+        return Right<Failure, NumberTrivia>(remoteTrivia);
       } on ServerException {
-        return Left(ServerFailure());
+        return Left<Failure, NumberTrivia>(ServerFailure());
       }
     } else {
       try {
         final NumberTriviaModel localTrivia =
             await numberTriviaLocalDataSource.getLastNumberTrivia();
-        return Right(localTrivia);
+        return Right<Failure, NumberTrivia>(localTrivia);
       } on CacheException {
-        return Left(CacheFailure());
+        return Left<Failure, NumberTrivia>(CacheFailure());
       }
     }
   }

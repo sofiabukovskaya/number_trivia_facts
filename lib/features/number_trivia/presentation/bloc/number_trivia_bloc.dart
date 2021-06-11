@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_number_fact/core/error/failures.dart';
@@ -23,7 +24,7 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
 
   NumberTriviaState get initialState => Empty();
 
-  final GetConcreteNumberTrivia getConcreteNumberTrivia;
+  final  GetConcreteNumberTrivia  getConcreteNumberTrivia;
   final GetRandomNumberTrivia getRandomNumberTrivia;
   final InputConverter inputConverter;
 
@@ -48,7 +49,7 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
       final Either<Failure, NumberTrivia> failureOrTrivia =
           await getRandomNumberTrivia(NoParams());
       yield failureOrTrivia.fold(
-          (fail) => Error(message: SERVER_FAILURE_MESSAGE),
+          (Failure fail) => Error(message: SERVER_FAILURE_MESSAGE),
           (NumberTrivia numberTrivia) => Loaded(numberTrivia: numberTrivia));
     }
   }

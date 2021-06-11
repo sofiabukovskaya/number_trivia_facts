@@ -19,7 +19,7 @@ void main() {
   final MockGetRandomNumberTrivia mockGetRandomNumberTrivia =
       MockGetRandomNumberTrivia();
   final MockInputConverter mockInputConverter = MockInputConverter();
-  NumberTriviaBloc numberTriviaBloc = NumberTriviaBloc(
+  final NumberTriviaBloc numberTriviaBloc = NumberTriviaBloc(
       getConcreteNumberTrivia: mockGetConcreteNumberTrivia,
       getRandomNumberTrivia: mockGetRandomNumberTrivia,
       inputConverter: mockInputConverter);
